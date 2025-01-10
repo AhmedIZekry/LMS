@@ -52,15 +52,16 @@
                                 </div>
                             </form>
                            <p class="or">or</p>
-                           <ul class="social_login d-flex flex-wrap">
-                               <li>
-                                   <a href="{{url('auth/google')}}">
-                                       @csrf
-                                       <span><img src="{{asset('user/assets/images/google_icon.png')}}"
-                                                  alt="Google" class="img-fluid"></span>
-                                       Google
-                                   </a>
-                              </li>
+                            <ul class="social_login d-flex flex-wrap">
+                                <li>
+                                    <form method="GET" action="{{url('auth/google')}}">
+                                        @csrf
+                                        <button type="submit" class="social_btn google_btn">
+                                            <img src="{{ asset('user/assets/images/google_icon.png') }}" alt="Google" class="img-fluid">
+                                            Google
+                                        </button>
+                                    </form>
+                                </li>
                             </ul>
                             <p class="create_account">Don't have an account? <a href="{{route("register")}}">Create free
                                     account</a></p>

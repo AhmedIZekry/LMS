@@ -35,7 +35,8 @@ class SocialiteController extends Controller
    {
        try{
 
-           $googleUser = Socialite::driver($provider)->stateless()->user();
+           $googleUser = Socialite::driver($provider)->user();
+           Session::invalidate();
 
            $isUserExist = User::where('email',$googleUser->email)->first();
            if($isUserExist){
@@ -58,7 +59,9 @@ class SocialiteController extends Controller
        }catch (Exception $exception){
            Session::invalidate();
            Session::regenerate();
-           dd($exception->getMessage());
+           return redirect()->route('login')->withErrors([
+               'error' => 'Authentication failed. Please try again.',
+           ]);
        }
 
        return redirect(route('student.dashboard'));
