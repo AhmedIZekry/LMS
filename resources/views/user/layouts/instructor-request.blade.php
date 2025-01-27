@@ -28,7 +28,7 @@
     <section class="wsus__dashboard mt_90 xs_mt_70 pb_120 xs_pb_100">
         <div class="container">
             <div class="row">
-                @include('user.pages.sections.side-bar')
+                @include('user.include.side-bar')
                 <div class="col-xl-9 col-md-6">
                     <div class="text-end mt-4 mb-4">
                         <button class="btn btn-primary">
@@ -42,7 +42,8 @@
                                 Become Instructor
                             </div>
                             <div class="card-body">
-                                <form method="POST" action="{{route('student.request.submit')}}"  enctype="multipart/form-data">
+                                <form method="POST" action="{{route('student.request.submit')}}"
+                                      enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
                                         <label>Document</label>

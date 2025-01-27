@@ -65,7 +65,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{asset("user/assets/dashboard_courses.html")}}">
+                                <a href="{{route('instructor.courses')}}">
                                     <div class="img">
                                         <img src="{{asset("user/assets/images/dash_icon_2.png")}}" alt="icon"
                                              class="img-fluid w-100">

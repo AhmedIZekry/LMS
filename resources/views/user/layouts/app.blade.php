@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <meta name="base_url" content="{{url('/')}}">
+    <meta name="csrf_token" content="{{ csrf_token() }}">
     <title>EduCore - Online Courses & Education HTML Template</title>
     <link rel="icon" type="image/png" href="{{asset("user/assets/images/favicon.png")}}">
     <link rel="stylesheet" href="{{asset("user/assets/css/all.min.css")}}">
@@ -27,7 +29,12 @@
     <link rel=" stylesheet" href="{{asset("user/assets/css/spacing.css")}}">
     <link rel="stylesheet" href="{{asset("user/assets/css/style.css")}}">
     <link rel="stylesheet" href="{{asset("user/assets/css/responsive.css")}}">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf/notyf.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/notyf/notyf.min.js"></script>
+
     @vite('resources/css/action-forms.css')
+    @stack('header_script')
 </head>
 
 <body class="home_3">
@@ -91,10 +98,13 @@
 <script src="{{asset("user/assets/js/video_player_youtube.js")}}"></script>
 <!--wow js-->
 <script src="{{asset("user/assets/js/wow.min.js")}}"></script>
-
+<script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
 <!--main/custom js-->
 <script src="{{asset("user/assets/js/main.js")}}"></script>
 
+
+<!--dynamic js-->
+@stack('scripts')
 </body>
 
 </html>

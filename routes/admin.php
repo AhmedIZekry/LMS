@@ -10,6 +10,9 @@ use App\Http\Controllers\Admin\Auth\PasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\CourseLanguageController;
+use App\Http\Controllers\Admin\CourseLevelController;
+use App\Http\Controllers\Admin\CourserCategoryController;
+use App\Http\Controllers\Admin\SubCourserCategoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(["middleware"=>"guest:admin","prefix"=>"admin","as"=>"admin."],function () {
@@ -64,4 +67,13 @@ Route::group(["middleware"=>"auth:admin","prefix"=>"admin","as"=>"admin."],funct
      * Course Management
      */
     Route::resource('course-language', CourseLanguageController::class);
+    Route::resource('course-level', CourseLevelController::class);
+    Route::resource('course-category', CourserCategoryController::class);
+    Route::controller(SubCourserCategoryController::class)->group(function () {
+        Route::get('course-category/{course_category}', 'index')->name('sub_course_category.index');
+        Route::get('course-category/{course_category}/create', 'create')->name('sub_course_category.create');
+//        Route::get('course-category/{course_category}/edit', 'edit')->name('sub_course_category.edit');
+        Route::post('course-category/{course_category}', 'store')->name('sub_course_category.store');
+//        Route::put('course-category/{course_category}/update', 'update')->name('sub_course_category.update');
+    });
 });

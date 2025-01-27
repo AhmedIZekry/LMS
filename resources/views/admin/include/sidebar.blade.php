@@ -174,6 +174,12 @@
                                 <a class="dropdown-item" href="{{route('admin.course-language.index')}}">
                                     Course Language
                                 </a>
+                                <a class="dropdown-item" href="{{route('admin.course-level.index')}}">
+                                    Course Level
+                                </a>
+                                <a class="dropdown-item" href="{{route('admin.course-category.index')}}">
+                                    Course Category
+                                </a>
                             </div>
                         </div>
                     </div>

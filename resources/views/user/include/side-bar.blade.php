@@ -14,13 +14,24 @@
         </div>
         <ul class="wsus__dashboard_sidebar_menu">
             <li>
-                <a href="{{asset("user/assets/dashboard.html")}}" class="active">
-                    <div class="img">
-                        <img src="{{asset("user/assets/images/dash_icon_8.png")}}" alt="icon"
-                             class="img-fluid w-100">
-                    </div>
-                    Dashboard
-                </a>
+                @if(auth()->user()->role === 'instructor')
+                    <a href="{{route('instructor.dashboard')}}" class="active">
+                        <div class="img">
+                            <img src="{{asset("user/assets/images/dash_icon_8.png")}}" alt="icon"
+                                 class="img-fluid w-100">
+                        </div>
+                        Dashboard
+                    </a>
+                @else
+                    <a href="{{route('student.dashboard')}}" class="active">
+                        <div class="img">
+                            <img src="{{asset("user/assets/images/dash_icon_8.png")}}" alt="icon"
+                                 class="img-fluid w-100">
+                        </div>
+                        Dashboard
+                    </a>
+                @endif
+
             </li>
             <li>
                 <a href="{{route('student.profileUpdate')}}">

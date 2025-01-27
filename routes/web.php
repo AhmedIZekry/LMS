@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\FrontEnd\CourseController;
 use App\Http\Controllers\FrontEnd\InstructorDashboardController;
 use App\Http\Controllers\FrontEnd\ProfileUpdateController;
 use App\Http\Controllers\FrontEnd\StudentDashboardController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SocialiteController;
 use Illuminate\Support\Facades\Route;
 
@@ -59,7 +59,16 @@ Route::group(['middleware' => ['auth', 'verified', 'check-role:student'], "prefi
 
 Route::group(['middleware' => ['auth', 'verified', 'check-role:instructor'], "prefix" => "instructor", "as" => "instructor."], function () {
     Route::get('/dashboard', [InstructorDashboardController::class, "index"])->name('dashboard');
+    Route::get('/courses',[CourseController::class,'index'])->name('courses');
+    Route::get('/courses/add-course',[CourseController::class,'addCourse'])->name('add-course');
+    Route::post('/courses/save',[CourseController::class,'saveStep'])->name('store-course');
+    Route::get('/courses/{id}/edit-course',[CourseController::class,'editCourse'])->name('course.edit');
+    Route::post('/courses/update',[CourseController::class,'update'])->name('update-course');
 
+
+    Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+        \UniSharp\LaravelFilemanager\Lfm::routes();
+    });
 });
 
 /**
@@ -67,11 +76,11 @@ Route::group(['middleware' => ['auth', 'verified', 'check-role:instructor'], "pr
  *  Profile Routes
  * --------------------------------------------------------------------------
  */
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+//Route::middleware('auth')->group(function () {
+//    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+//});
 /**
  * --------------------------------------------------------------------------
  *  Third Party Auth Routes

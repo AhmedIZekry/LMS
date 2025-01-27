@@ -15,7 +15,7 @@
     <section class="wsus__dashboard mt_90 xs_mt_70 pb_120 xs_pb_100">
         <div class="container">
             <div class="row">
-                @include('user.pages.sections.side-bar')
+                @include('user.include.side-bar')
                 <div class="col-xl-9 col-md-8">
                     <div class="text-end">
                         <button class="btn btn-primary">

@@ -11,6 +11,12 @@
     {{--    <link href="{{asset("admin/assets/dist/css/tabler-payments.min.css?1692870487")}}" rel="stylesheet"/>--}}
     {{--    <link href="{{asset("admin/assets/dist/css/tabler-vendors.min.css?1692870487")}}" rel="stylesheet"/>--}}
     <link href="{{asset("admin/assets/dist/css/demo.min.css?1692870487")}}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="{{asset('default-files/themify-icons/themify-icons.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+
+
     <style>
         @import url('https://rsms.me/inter/inter.css');
 

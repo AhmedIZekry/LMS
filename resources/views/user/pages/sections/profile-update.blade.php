@@ -4,8 +4,9 @@
     <section class="wsus__dashboard mt_90 xs_mt_70 pb_120 xs_pb_100">
         <div class="container">
             <div class="row">
-                @include('user.pages.sections.side-bar')
-                <div class="col-xl-9 col-md-8 wow fadeInRight" style="visibility: visible; animation-name: fadeInRight;">
+                @include('user.include.side-bar')
+                <div class="col-xl-9 col-md-8 wow fadeInRight"
+                     style="visibility: visible; animation-name: fadeInRight;">
                     <div class="wsus__dashboard_contant">
                         <div class="wsus__dashboard_contant_top d-flex flex-wrap justify-content-between">
                             <div class="wsus__dashboard_heading">
@@ -27,14 +28,16 @@
                                 </ul>
                             </div>
                         @endif
-                        <form method="POST" action="{{route('student.personalInformationUpdate')}}" class="wsus__dashboard_profile_update" enctype="multipart/form-data">
+                        <form method="POST" action="{{route('student.personalInformationUpdate')}}"
+                              class="wsus__dashboard_profile_update" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="wsus__dashboard_profile wsus__dashboard_profile_avatar">
                                 <div class="img">
                                     <img src="{{asset($user->image)}}" alt="profile" class="img-fluid w-100">
                                     <label for="profile_photo">
-                                        <img src="{{asset('user/assets/images/dash_camera.png')}}" alt="camera" class="img-fluid w-100">
+                                        <img src="{{asset('user/assets/images/dash_camera.png')}}" alt="camera"
+                                             class="img-fluid w-100">
                                     </label>
                                     <input type="file" name="image" id="profile_photo" hidden="">
                                 </div>
@@ -105,7 +108,8 @@
                                     <div class="col-xl-6">
                                         <div class="wsus__dashboard_password_change_input">
                                             <label>Current Password</label>
-                                            <input type="password"  name="current_password" placeholder="Enter Current Password">
+                                            <input type="password" name="current_password"
+                                                   placeholder="Enter Current Password">
                                         </div>
                                     </div>
 
@@ -118,7 +122,8 @@
                                     <div class="col-xl-12">
                                         <div class="wsus__dashboard_password_change_input">
                                             <label>Confirm Password</label>
-                                            <input type="password" name="new_password_confirmation" placeholder="Confirm New Password">
+                                            <input type="password" name="new_password_confirmation"
+                                                   placeholder="Confirm New Password">
                                         </div>
                                     </div>
                                     <div class="col-xl-12">
@@ -139,7 +144,8 @@
 
                         </div>
 
-                        <form method="POST" action="{{route('student.socialInformationUpdate')}}" class="wsus__dashboard_profile_update">
+                        <form method="POST" action="{{route('student.socialInformationUpdate')}}"
+                              class="wsus__dashboard_profile_update">
                             @csrf
                             @method('PUT')
                             <div class="row">

@@ -17,7 +17,7 @@ trait FileUpload
     function upload(UploadedFile $file,string $dictionary =null): string
     {
         $file->move(public_path($dictionary), $file->getClientOriginalName());
-        return "/{$dictionary}/".$file->getClientOriginalName();
+        return "/{$dictionary}/{$file->getClientOriginalName()}";
     }
     function deleteFile(string $file): bool
     {

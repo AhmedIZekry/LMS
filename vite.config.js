@@ -10,6 +10,7 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/js/show-password.js',
                 'resources/js/admin.js',
+                'resources/js/course-form.js',
             ],
             refresh: true,
         }),
